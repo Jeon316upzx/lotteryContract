@@ -17,6 +17,10 @@ contract Lottery {
         players.push(msg.sender);
      }
 
+     function getPlayers() public view returns(uint){
+      return players.length;
+     }
+
      function random() private view returns(uint){
         uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, players)));
      }
